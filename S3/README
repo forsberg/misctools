@@ -1,0 +1,31 @@
+s3-delete-bucket.py - Simple python script for deleting a whole Amazon S3 bucket recursively. 
+
+Requirements: Amazon S3 Library for REST in Python available at
+              http://developer.amazonwebservices.com/connect/entry.jspa?externalID=134
+
+Installation: Download S3 Library from URL above. Unzip, then copy
+              S3.py into the directory where s3-delete-bucket.py resides.
+
+Usage: 
+
+  Set the environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to your values. Example:
+
+  export AWS_ACCESS_KEY_ID="<insert your aws access key here>"
+  export AWS_SECRET_ACCESS_KEY="<insert your secret aws access key here>"
+
+  ..then run:
+
+  python s3-delete-bucket.py <bucket name>
+
+  ..this will not actually delete anything, only list the number of
+  objects in the bucket, or give an error message if the bucket
+  doesn't exist or if you can't access it.
+
+  To actually delete all contents of the bucket, then delete the bucket itself, run:
+
+  ACTUALLY_DELETE=1 python s3-delete-bucket.py <bucket name>
+
+  ..that will remove all objects in the bucket, then remove the
+  bucket. Some progress information is printed during the
+  operation. For buckets with many objects, the script will take a
+  while to complete.
