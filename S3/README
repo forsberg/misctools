@@ -27,5 +27,6 @@ Usage:
 
   ..that will remove all objects in the bucket, then remove the
   bucket. Some progress information is printed during the
-  operation. For buckets with many objects, the script will take a
-  while to complete.
+  operation. However, the script only fetches 1000 object names at a
+  time, so the script doesn't know the total number of object to
+  delete until all objects have been deleted.
