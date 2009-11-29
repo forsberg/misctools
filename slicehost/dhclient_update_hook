@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+import sliceapi
+
+if "__main__" == __name__:
+    if len(sys.argv) < 3:
+        sys.exit("Usage: %s <origin> <name> <record type> [ttl]" % sys.argv[0])
+
+    (origin, name, record_type) = sys.argv[1:4]
+
+    data = {"name":name, "record_type":record_type}
+    if len(sys.argv) > 4:
+        data["ttl"] = int(sys.argv[4])
+
+    if not "reason" in os.environ:
+        sys.exit("No \"reason\" in environment. Exiting")
+
+    if not os.environ["reason"] in ["BOUND", "RENEW", "REBIND", "REBOOT"]:
+        sys.exit(0)
+
+    if not "new_ip_address" in os.environ:
+        sys.exit("No \"new_ip_address\" in environment. Exiting")
+
+    data["data"] = os.environ["new_ip_address"]
+
+    dns = sliceapi.SliceDNS(origin)
+    print data
+    print dns.update_record(name, data)
+
+    
+
+
