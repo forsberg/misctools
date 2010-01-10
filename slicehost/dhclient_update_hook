@@ -28,8 +28,7 @@ if "__main__" == __name__:
     data["data"] = os.environ["new_ip_address"]
 
     dns = sliceapi.SliceDNS(origin)
-    print data
-    print dns.update_record(name, data)
+
 
     
 
