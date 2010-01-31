@@ -30,3 +30,5 @@ Usage:
   operation. However, the script only fetches 1000 object names at a
   time, so the script doesn't know the total number of object to
   delete until all objects have been deleted.
+
+More info: http://efod.se/blog/archive/2009/08/09/delete-s3-bucket
