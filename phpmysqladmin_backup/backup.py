@@ -61,7 +61,7 @@ also be part of the filename and are subsituted accordingly:
     sys.exit(1)
     
 if __name__ == "__main__":
-    opts, args = getopt.getopt(sys.argv[1:], "", ["user=", "password=", "verbose", "dryrun"])
+    opts, args = getopt.getopt(sys.argv[1:], "", ["user=", "password=", "verbose", "dryrun", "help"])
     user = None
     password = None
     verbose = False
@@ -83,6 +83,8 @@ if __name__ == "__main__":
             dryrun = True
         if "--verbose" == opt:
             verbose = True
+        if "--help" == opt:
+            usage()
 
     u = urlparse.urlparse(url)
     netloc = u.netloc
@@ -106,21 +108,3 @@ if __name__ == "__main__":
 
     if not dryrun:
         backup_database(url, user, password, dbname, output)
-        
-    
-
-    
-
-    
-
-
-
-    
-        
-
-    
-
-
-            
-    
- 
