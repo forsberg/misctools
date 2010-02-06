@@ -11,7 +11,7 @@ Requirements: Python and its `mechanize package`_ (available as
 
 Run ./backup.py --help for usage. 
 
-Related blog post `here <https://efod.se/blog/archive/2010/02/06/phpmyadmin-sql-dump>`_
+Related blog post `here <http://efod.se/blog/archive/2010/02/06/phpmyadmin-sql-dump>`_
 
 .. _phpMyAdmin: http://www.phpmyadmin.net/home_page/index.php
 .. _mechanize package: http://wwwsearch.sourceforge.net/mechanize/
