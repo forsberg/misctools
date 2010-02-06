@@ -1,0 +1,23 @@
+Simple scripts for updating DNS entries on Slicehost's DNS servers, using the Slicehost API.
+
+* update_entry can add/update single entries from the command line or from scripts.
+* dhclient_update_hook can be used as a dhclient-exit-hook. 
+
+Example /etc/dhcp3/dhclient-exit-hooks.d/update_slicehost script:
+
+-- begin example script--
+#!/bin/bash
+
+/home/forsberg/misctools/slicehost/dhclient_update_hook example.com. hostname A 3600
+-- end example script --
+
+In both cases, the slicehost API password will be read from one of the following files (in order of preference):
+
+slicehost_api_password in the current working directory.
+~/.slicehost_api_password
+/etc/slicehost_api_password
+
+Related: http://efod.se/blog/archive/2010/02/06/slicehost-dns-api
+
+
+
