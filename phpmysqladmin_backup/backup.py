@@ -55,8 +55,8 @@ store the information in ~/.netrc, where it will be read by this script.
 <output filename> is run through datetime.datetime.now().strftime(). The following strings can
 also be part of the filename and are subsituted accordingly:
 
-  %(dbname)s      database name as given on command line
-  %(netloc)s      netloc part of phpmysql url
+  %%(dbname)s      database name as given on command line
+  %%(netloc)s      netloc part of phpmysql url
 """ % sys.argv[0]
     sys.exit(1)
     
